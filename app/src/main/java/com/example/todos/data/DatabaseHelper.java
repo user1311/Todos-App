@@ -1,6 +1,7 @@
 package com.example.todos.data;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -38,6 +39,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         db.execSQL(TABLE_CATEGORIES_CREATE);
         db.execSQL(TABLE_TODOS_CREATE);
+        ContentValues values = new ContentValues();
+        values.put (CategoriesEntry.COLUMN_DESCRIPTION, "Work");
+        long idCat = db.insert(CategoriesEntry.TABLE_NAME, null, values);
+        values.clear();
+        values.put(TodosEntry.COLUMN_CATEGORY, String.valueOf(idCat));
+        values.put(TodosEntry.COLUMN_TEXT, "Welcome to Todos!");
+        long idTodo = db.insert(TodosEntry.TABLE_NAME, null, values);
 
     }
 

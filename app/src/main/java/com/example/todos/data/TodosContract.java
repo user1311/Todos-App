@@ -12,6 +12,11 @@ public final class TodosContract{
     public static final String PATH_CATEGORIES="categories";
     public static final Uri BASE_CONTENT_URI=Uri.parse("content://"+CONTENT_AUTHORITY);
 
+    public String concatContent(String path)
+    {
+        return "content://"+path;
+    }
+
 
     public static final class TodosEntry implements BaseColumns {
 
