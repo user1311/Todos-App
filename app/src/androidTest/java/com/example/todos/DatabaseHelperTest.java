@@ -48,4 +48,6 @@ public class DatabaseHelperTest {
         assertTrue(c.getCount() == 1);
         assertTrue(c.getColumnCount() == 2);
     }
+
+    /*Testing*/
 }   
